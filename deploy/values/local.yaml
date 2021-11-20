@@ -1,0 +1,21 @@
+replicaCount: 1
+
+deployment:
+  image:
+    repository: jsonstore
+    tag: latest
+    pullPolicy: IfNotPresent
+  env:
+    SERVER_TIMEOUT_MS: 10
+
+service:
+  type: NodePort
+  port: 8080
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
